@@ -6,6 +6,11 @@ Paste product URLs and get every review with the fields that matter for research
 
 No login, no cookies, no API key — just TikTok Shop product URLs.
 
+> **Requirement:** TikTok Shop only answers residential connections, so the actor needs an Apify
+> plan that includes **residential proxy** ([compare plans](https://apify.com/pricing)). On an
+> account without it, the run stops right away with an explanation and charges no products or
+> reviews.
+
 ---
 
 ## What you get
