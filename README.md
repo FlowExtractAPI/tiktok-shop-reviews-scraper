@@ -32,11 +32,11 @@ Enable **Include a product summary row** and each product also gets one summary 
 
 | Field | Description |
 |---|---|
-| **TikTok Shop product URLs or IDs** | One per line. Any of: `https://shop.tiktok.com/<market>/pdp/<id>`, `https://www.tiktok.com/shop/pdp/<slug>/<id>`, `https://shop.tiktok.com/view/product/<id>`, or a bare product id. The market is read from the URL automatically. |
-| **Max reviews per product** | Upper bound per product (default 100). |
-| **Sort reviews by** | Recommended (default) or most recent. |
-| **Include a product summary row** | Add the per-product summary + rating breakdown (default on). |
-| **Default market / Force market** | Fallback market for bare IDs, or force one market for every input. |
+| 🔗 **Product URLs or IDs** | One per line. Any of: `https://shop.tiktok.com/<market>/pdp/<id>`, `https://www.tiktok.com/shop/pdp/<slug>/<id>`, `https://shop.tiktok.com/view/product/<id>`, or a bare product id. |
+| 🌍 **TikTok Shop market** | Pick from the list — no typing. **Auto-detect** (default) reads the market from each link; choosing a market applies it to every product (handy for bare IDs). |
+| 🔢 **Max reviews per product** | Upper bound per product (default 100). |
+| ↕️ **Sort reviews by** | 👍 Recommended (default) or 🆕 Most recent first. |
+| 📊 **Summary row** | One row per product with total reviews, overall rating and the 1–5 ⭐ breakdown (default on). |
 
 ### Example input
 
@@ -46,29 +46,35 @@ Enable **Include a product summary row** and each product also gets one summary 
     "https://shop.tiktok.com/us/pdp/cat-nail-clipper/1731578642912612516",
     "https://shop.tiktok.com/ph/pdp/1737556955253146886"
   ],
+  "market": "AUTO",
   "maxReviewsPerProduct": 200,
+  "reviewsSort": "recent",
   "includeProductSummary": true
 }
 ```
 
-## Market coverage
+## Markets
 
-The actor is built for **every market TikTok Shop operates in** — the market is just part of the
-product URL. TikTok applies stronger bot protection to some markets than others; where a market
-presents a verification wall, the actor automatically rotates to a fresh residential IP and retries.
-Running on residential proxies (recommended) maximizes coverage across all markets.
+🇺🇸 United States · 🇬🇧 United Kingdom · 🇮🇪 Ireland · 🇩🇪 Germany · 🇫🇷 France · 🇮🇹 Italy · 🇪🇸 Spain ·
+🇲🇽 Mexico · 🇧🇷 Brazil · 🇯🇵 Japan · 🇮🇩 Indonesia · 🇲🇾 Malaysia · 🇹🇭 Thailand · 🇻🇳 Vietnam ·
+🇵🇭 Philippines · 🇸🇬 Singapore — every TikTok Shop market with a web storefront.
 
-## Pricing (pay per result)
+TikTok applies stronger bot protection to some markets than others. When a market presents a
+verification step, the actor retries on a fresh residential connection; a product it still cannot
+reach is skipped and **not charged**.
 
-| Event | Price |
-|---|---|
-| Actor start | $0.005 |
-| Product processed | $0.010 |
-| Review scraped | $0.002 |
+## Pricing (pay per event)
 
-You are charged per review delivered plus a small per-product fee; a product that returns nothing
-is not charged the per-product fee. Example: 1,000 reviews across 10 products ≈
-$0.005 + 10×$0.010 + 1,000×$0.002 = **$2.11**.
+Prices drop as your Apify plan goes up.
+
+| Event | Free | Bronze | Silver | Gold+ |
+|---|---|---|---|---|
+| Actor start (per run, 1 GB) | $0.005 | $0.005 | $0.005 | $0.005 |
+| Product processed | $0.020 | $0.018 | $0.016 | $0.014 |
+| Review scraped | $0.0025 | $0.0022 | $0.0019 | $0.0016 |
+
+A product that returns no reviews is not charged the per-product fee. Example — **1,000 reviews
+across 10 products**: Free $2.71 · Bronze $2.39 · Silver $2.07 · Gold+ $1.75.
 
 ## Output sample
 
@@ -96,7 +102,7 @@ $0.005 + 10×$0.010 + 1,000×$0.002 = **$2.11**.
 ## Support
 
 Questions, a market that isn't returning data, or a field you need added? Email
-**support@flowextractapi.com** — we read every message.
+**[flowextractapi@outlook.com](mailto:flowextractapi@outlook.com)** — we read every message.
 
 ## Legal & compliance
 
