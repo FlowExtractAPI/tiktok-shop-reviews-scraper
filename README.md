@@ -37,6 +37,7 @@ Enable **Include a product summary row** and each product also gets one summary 
 | 🌍 **TikTok Shop market** | Pick from the list — no typing. **Auto-detect** (default) reads the market from each link; choosing a market applies it to every product (handy for bare IDs). |
 | 🔢 **Max reviews per product** | Upper bound per product (default 100). |
 | ↕️ **Sort reviews by** | 👍 Recommended (default) or 🆕 Most recent first. |
+| 🔍 **Filter reviews** | 🌟 All (default), one star level (5 ⭐ … 1 ⭐), 📷 with photos or videos, or ✅ verified purchases only — the same filters as on the product page. You pay only for matching reviews. |
 | 📊 **Summary row** | One row per product with total reviews, overall rating and the 1–5 ⭐ breakdown (default on). |
 
 ### Example input
@@ -50,6 +51,7 @@ Enable **Include a product summary row** and each product also gets one summary 
   "market": "AUTO",
   "maxReviewsPerProduct": 200,
   "reviewsSort": "recent",
+  "reviewsFilter": "1_star",
   "includeProductSummary": true
 }
 ```
